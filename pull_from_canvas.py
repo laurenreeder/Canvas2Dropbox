@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.keys import Keys
-from canvas2dropbox import selenium_test
+import selenium_test
 import time
 import sys
 import requests
@@ -24,7 +24,7 @@ def loop_through_folders(location, name, folder):
 		for item in filesInfo:
 			fileAddress=item['url']
 			fileName=item['display_name']
-			test.download(fileAddress)
+			selenium_test.download(fileAddress)
 			subprocess.call("find_most_recent.sh",shell=True)
 
 	if folder['folders_count']>0:
